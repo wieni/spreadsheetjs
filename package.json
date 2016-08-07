@@ -1,0 +1,32 @@
+{
+  "name": "spreadsheetjs",
+  "version": "1.0.0",
+  "description": "A simple Javascript API to work with public Google spreadsheets",
+  "main": "index.js",
+  "scripts": {
+	"build": "webpack",
+	"watch": "webpack --watch",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "keywords": [
+    "google",
+    "spreadsheet",
+    "json",
+    "api"
+  ],
+  "author": "Wannes Gennar <wannes.gennar@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-webpack": "^1.7.0",
+    "webpack": "^1.13.1"
+  }
+}
