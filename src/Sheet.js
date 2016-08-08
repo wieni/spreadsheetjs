@@ -29,6 +29,34 @@ export default class Sheet {
 		this.data = data.values;
 	}
 
-	read(from = missing`read position`, to) {
+	/**
+	 * Read a cell from the sheet.
+	 * @param  {string} coord The coordinate of the cell to read in the A1 notation.
+	 * @return {string} Returns the data at the requested coordinate
+	 * or undefined if invalid coordinates were given.
+	 */
+	read(coord = missing`read position`) {
+		const [x, y] = this.__coordinates(coord);
+
+		if (x < this.data.length || y < this.data[x].length) {
+			return (void 0);
+		}
+
+		return this.data[x][y];
+	}
+
+	/**
+	 * Convert a coordinate from the A1 notation to [x,y] notation.
+	 * @private
+	 * @param  {string} coord The A1 notation of the coordinates.
+	 * @return {Object} An object with the X property pointing to the X coordinate,
+	 * and the Y property pointing to the Y coordinate.
+	 */
+	__coordinates(coord) {
+		assert(coord.match(/[a-zA-Z][0-9]+/), 'Invalid coordinates given.');
+		const x = coord.charAt().toUpperCase().charCodeAt() - 65; // 65 = 'A'
+		const y = parseInt(coord.substr(1), 10);
+
+		return { x, y };
 	}
 }
