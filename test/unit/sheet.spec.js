@@ -1,5 +1,5 @@
 /* eslint-env jasmine,es6 */
-import Sheet from 'sheet/Sheet';
+import Sheet from 'Sheet';
 
 describe('Sheet', () => {
 	it('transpiles to a callable function', () => {
