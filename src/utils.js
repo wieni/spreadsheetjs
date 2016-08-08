@@ -12,7 +12,27 @@ const assert = (condition, message) => {
 	}
 };
 
+const get = (url) => new Promise((resolve, reject) => {
+	const xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = () => {
+		if (xhttp.readyState === 4) {
+			let response = xhttp.responseText;
+			if (xhttp.getResponseHeader('Content-Type').match(/json/)) {
+				response = JSON.parse(response);
+			}
+			if (xhttp.status === 200) {
+				resolve(response);
+			} else {
+				reject(xhttp.status, response, xhttp);
+			}
+		}
+	};
+	xhttp.open('GET', url, true);
+	xhttp.send();
+});
+
 export default {
 	missing,
 	assert,
+	get,
 };

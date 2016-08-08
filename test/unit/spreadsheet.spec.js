@@ -6,9 +6,15 @@ describe('Spreadsheet', () => {
 		expect(typeof Spreadsheet).toBe('function');
 	});
 
-	xit('has required parameters', () => {
+	xit('retrieves meta data when calling init', () => {
 	});
 
-	xit('can retrieve meta data about itself', () => {
+	xit('fails when meta data fetching fails', () => {
+	});
+
+	xit('parses the API data into properties', () => {
+	});
+
+	xit('lazy loads sheet data', () => {
 	});
 });
