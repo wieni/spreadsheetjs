@@ -23,6 +23,7 @@ module.exports = {
 	resolve: {
 		root : [path.resolve('src')],
 		alias: {
+			sheet: path.resolve('src/sheet')
 		},
 		extensions: ['', '.js']
 	},
