@@ -21,9 +21,9 @@ export default class Spreadsheet {
 		this.timeZone = null;
 		this.__cache = new Map();
 		this.__parsing = new Promise((resolve, reject) => {
-			$.get(`https://sheets.googleapis.com/v4/spreadsheets/${this.hash}?key=${this.key}`)
+			fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.hash}?key=${this.key}`)
 				.done(this.__parse.bind(this, resolve))
-				.fail(reject);
+				.catch(reject);
 		});
 	}
 
@@ -45,12 +45,12 @@ export default class Spreadsheet {
 			return this.__cache.get(name);
 		}
 		const promise = new Promise((resolve, reject) => {
-			$.get(`https://sheets.googleapis.com/v4/spreadsheets/${this.hash}/values/${name}?key=${this.key}`)
+			fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.hash}/values/${name}?key=${this.key}`)
 				.done((data) => {
 					const sheet = new Sheet(name, data);
 					resolve(sheet);
 				})
-				.fail(reject);
+				.catch(reject);
 		});
 
 		this.__cache.set(name, promise);
