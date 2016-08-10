@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		'spreadsheet': path.join('index.js')
+		'spreadsheet': 'index.js'
 	},
 	output: {
 		path: 'dist/',
@@ -12,7 +12,7 @@ module.exports = {
 	module : {
 		loaders: [
 			{
-				test  : /\.jsx?$/,
+				test  : /\.js$/,
 				loader: 'babel',
 				query : {
 					presets: ['es2015']
@@ -23,7 +23,6 @@ module.exports = {
 	resolve: {
 		root : [path.resolve('src')],
 		alias: {
-			sheet: path.resolve('src/sheet')
 		},
 		extensions: ['', '.js']
 	},
