@@ -20,7 +20,9 @@ export default class Spreadsheet {
 		this.__cache = new Map();
 		this.__parsing = new Promise((resolve, reject) => {
 			fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.hash}?key=${this.key}`)
-				.done(this.__parse.bind(this, resolve))
+				.then((response) => {
+					response.json().then(this.__parse.bind(this, resolve));
+				})
 				.catch(reject);
 		});
 	}
@@ -44,9 +46,11 @@ export default class Spreadsheet {
 		}
 		const promise = new Promise((resolve, reject) => {
 			fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.hash}/values/${name}?key=${this.key}`)
-				.done((data) => {
-					const sheet = new Sheet(name, data);
-					resolve(sheet);
+				.then((response) => {
+					response.json().then((data) => {
+						const sheet = new Sheet(name, data);
+						resolve(sheet);
+					});
 				})
 				.catch(reject);
 		});
