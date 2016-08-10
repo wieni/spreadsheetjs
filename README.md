@@ -1,6 +1,8 @@
 # SpreadsheetJS
 ## A simple Javascript API to work with public Google spreadsheets
 
+TODO write tests
+
 ### Available commands
 
 - ``` npm run build ```

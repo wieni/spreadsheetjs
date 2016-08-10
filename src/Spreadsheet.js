@@ -1,6 +1,4 @@
-/* global API_KEY b:true */
-import $ from 'jquery';
-import Sheet from 'api/Sheet';
+import Sheet from './Sheet';
 
 /**
  * A simple wrapper class that exposes the functionality of the Google spreadsheet API (v4).
@@ -11,7 +9,7 @@ export default class Spreadsheet {
 	 * @param  {string} key Your Google API key.
 	 * @param  {string} hash Your Spreadsheet hash.
 	 */
-	constructor(hash, key = API_KEY) {
+	constructor(hash, key = 'you_forgot_your_api_key') {
 		this.key = key;
 		this.hash = hash;
 		this.ready = false;

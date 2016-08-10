@@ -28,6 +28,6 @@ module.exports = {
 		extensions: ['', '.js']
 	},
 	plugins: [
-		new webpack.SourceMapDevToolPlugin({})
+		// new webpack.SourceMapDevToolPlugin({})
 	]
 };
