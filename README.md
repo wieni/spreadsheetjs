@@ -69,6 +69,15 @@ const column = sheet.column('B'); // returns the B column
 const row = sheet.row('3'); // returns the third row
 ```
 
+Of course sometimes you need a couple rows from the sheet with variable width and length, then we could use the `rows` function (`columns` method coming soon). Say we want to take all rows starting from row 2
+```js
+const rows = sheet.rows(2);
+```
+Or if we don't need all rows, but say only 3 starting from row 2
+```js
+const rows = sheet.rows(2, 3);
+```
+
 But what if you don't want the entire row, or the entire column? We got you, pass in a second parameter to skip some parts;
 ```js
 const column = sheet.column('B', '5'); // returns the B column starting on row 5
